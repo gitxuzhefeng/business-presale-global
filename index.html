@@ -1070,18 +1070,6 @@
 
     .pay-btn:active { transform: scale(0.98); }
 
-    .pay-btn--stripe {
-      background: #635bff;
-      color: #fff;
-      box-shadow: 0 6px 20px rgba(99, 91, 255, 0.35);
-    }
-
-    .pay-btn--paypal {
-      background: #0070ba;
-      color: #fff;
-      box-shadow: 0 6px 20px rgba(0, 112, 186, 0.25);
-    }
-
     .pay-btn--ghost {
       background: rgba(15, 23, 42, 0.04);
       color: var(--text-secondary);
@@ -1208,8 +1196,8 @@
         <a href="#method">Method</a>
         <a href="#pricing">Pricing</a>
       </div>
-      <button class="nav-cta" type="button" data-open-pay="freemium" data-plan="Founding member · $14/mo">
-        Reserve spot
+      <button class="nav-cta" type="button" data-open-contact="freemium" data-plan="Founding member · $14/mo">
+        Email me
         <span class="nav-cta-icon" aria-hidden="true">↗</span>
       </button>
       <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
@@ -1224,7 +1212,7 @@
       <a href="#value" class="menu-link">Why</a>
       <a href="#method" class="menu-link">Method</a>
       <a href="#pricing" class="menu-link">Pricing</a>
-      <a href="#" class="menu-link" data-open-pay="freemium" data-plan="Founding member · $14/mo">Reserve spot</a>
+      <a href="#" class="menu-link" data-open-contact="freemium" data-plan="Founding member · $14/mo">Email me</a>
     </div>
   </div>
 
@@ -1235,8 +1223,8 @@
         <h1>Ship your idea.<br>Collect your first <em>dollar</em>.</h1>
         <p class="lead">Not another course — an <strong>AI co-founder</strong> that remembers your project. A 12-step playbook built for <strong>YouTube &amp; X creators</strong>: offers, outreach scripts, validation checklists — goal: first paid customer in 90 days.</p>
         <div class="hero-actions">
-          <button class="btn-primary" type="button" data-open-pay="freemium" data-plan="Founding member · $14/mo">
-            Reserve founding · from $14/mo
+          <button class="btn-primary" type="button" data-open-contact="freemium" data-plan="Founding member · $14/mo">
+            Email for founding access
             <span class="btn-icon" aria-hidden="true">↗</span>
           </button>
           <a class="btn-ghost" href="#audience">See fit for YouTube / X</a>
@@ -1244,7 +1232,7 @@
         <div class="hero-metrics">
           <div>
             <div class="metric-val" id="stat-payments">0 / 3</div>
-            <div class="metric-label">Paid presales</div>
+            <div class="metric-label">Email reservations</div>
           </div>
           <div>
             <div class="metric-val">01–05</div>
@@ -1360,14 +1348,14 @@
         <div class="section-head reveal">
           <p class="section-label">Method</p>
           <h2>Phase 1: Steps 01–05</h2>
-          <p>From raw idea to first payment. Clear Step 05 = 3 paid commitments. Steps 06–12 unlock after you pass Step 05.</p>
+          <p>From raw idea to first customer signal. Clear Step 05 = 3 serious founding conversations. Steps 06–12 unlock after you pass Step 05.</p>
         </div>
         <div class="steps-track reveal reveal-delay-1">
           <div class="step-chip is-core"><span>STEP 01</span><strong>Niche score</strong><p>S/A/B/F grade + micro-niche angles</p></div>
           <div class="step-chip is-core"><span>STEP 02</span><strong>Smart positioning</strong><p>Positioning line + first customer hypothesis</p></div>
           <div class="step-chip is-core"><span>STEP 03</span><strong>6P offer</strong><p>Full 6P + pricing logic</p></div>
           <div class="step-chip is-core"><span>STEP 04</span><strong>Pain validation</strong><p>10 conversations · 3 strong pains</p></div>
-          <div class="step-chip is-core"><span>STEP 05</span><strong>Presale revenue</strong><p>Sell before build · 3 paid commitments</p></div>
+          <div class="step-chip is-core"><span>STEP 05</span><strong>Presale validation</strong><p>Validate before build · 3 founder commitments</p></div>
         </div>
       </div>
     </section>
@@ -1378,7 +1366,7 @@
         <div class="section-head reveal">
           <p class="section-label">Pricing</p>
           <h2>Pricing · presale validation</h2>
-          <p>≥ 3 real payments in 7 days → we ship Phase 1. USD pricing; cards via Stripe / PayPal.</p>
+          <p>Payment links are not live yet. For now, email me to reserve a founding spot and discuss the best plan.</p>
         </div>
 
         <div class="pricing-row">
@@ -1396,8 +1384,8 @@
                 <li>Build-in-public cards</li>
                 <li>Priority access at launch</li>
               </ul>
-              <button class="btn-primary" type="button" data-open-pay="freemium" data-plan="Founding member · $14/mo">
-                Reserve · $14/mo
+              <button class="btn-primary" type="button" data-open-contact="freemium" data-plan="Founding member · $14/mo">
+                Email to reserve
                 <span class="btn-icon" aria-hidden="true">↗</span>
               </button>
               <p class="price-note">Tests free tier → paid conversion</p>
@@ -1416,7 +1404,7 @@
                 <li>Unlock 06–12 after Step 05</li>
                 <li>Add ideas later · $14 each</li>
               </ul>
-              <button class="btn-ghost" type="button" data-open-pay="project" data-plan="Single project pass · $42">Reserve · $42</button>
+              <button class="btn-ghost" type="button" data-open-contact="project" data-plan="Single project pass · $42">Email for details</button>
               <p class="price-note">Tests project-based pricing</p>
             </div>
           </div>
@@ -1432,7 +1420,7 @@
                 <li>Cohort progress dashboard</li>
                 <li>Dedicated onboarding</li>
               </ul>
-              <button class="btn-ghost" type="button" data-open-pay="b2b" data-plan="White-label · custom">Book a call</button>
+              <button class="btn-ghost" type="button" data-open-contact="b2b" data-plan="White-label · custom">Email for a call</button>
               <p class="price-note">Accelerators &amp; creator programs</p>
             </div>
           </div>
@@ -1446,12 +1434,12 @@
         <div class="story-band">
           <p class="section-label" style="margin-bottom:1.25rem;">Build in Public</p>
           <h2 style="margin:0 0 1.25rem;font-size:clamp(1.5rem,3vw,2rem);font-weight:800;letter-spacing:-0.03em;">We validate the method on ourselves</h2>
-          <p><strong>Rule:</strong> ≥ 3 real payments in 7 days → start building. Miss → adjust pricing/positioning and retest.</p>
-          <p><strong>First-dollar wall</strong> (with permission) will showcase early supporters — the clearest proof the playbook works.</p>
+          <p><strong>Rule:</strong> ≥ 3 qualified email reservations → start building. Miss → adjust pricing/positioning and retest.</p>
+          <p><strong>Founder wall</strong> (with permission) will showcase early supporters — the clearest proof the playbook works.</p>
           <div class="progress-wrap">
             <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
             <div class="progress-meta">
-              <span>Presale progress: <strong id="progress-text" style="color:var(--text)">0 / 3 paid</strong></span>
+              <span>Presale progress: <strong id="progress-text" style="color:var(--text)">0 / 3 emails</strong></span>
               <span>Updated <span id="update-date"></span></span>
             </div>
           </div>
@@ -1480,12 +1468,12 @@
             <div class="faq-body">Generic AI forgets your project and never checks if you ran real validation. We productize 12 steps with ready-to-use scripts and pass/fail gates.</div>
           </details>
           <details class="faq-item">
-            <summary>How do I pay? (no WeChat)</summary>
-            <div class="faq-body">Card via Stripe or PayPal on the checkout modal. After paying, DM <a href="https://x.com/tellmewoho">@tellmewoho</a> on X or email xuzhefeng222@gmail.com with your X handle and payment reference.</div>
+            <summary>How do I reserve before payment links are ready?</summary>
+            <div class="faq-body">Email <a href="mailto:xuzhefeng222@gmail.com">xuzhefeng222@gmail.com</a> with your X handle, chosen plan, and what you are trying to build. I will reply with next steps.</div>
           </details>
           <details class="faq-item">
-            <summary>Refunds?</summary>
-            <div class="faq-body">Full refund within 7 days if we have not sent access instructions and the product is not live yet. Same channel you paid through.</div>
+            <summary>Do I need to pay today?</summary>
+            <div class="faq-body">No. Payment links are not live yet, so this page is collecting founder interest by email first. I will confirm pricing and access details before asking for payment.</div>
           </details>
         </div>
       </div>
@@ -1496,9 +1484,9 @@
       <div class="shell reveal">
         <div class="cta-panel">
           <h2>Be one of the first 3 validators</h2>
-          <p>Your payment is not a donation — it proves this playbook can help creators collect their first dollar.</p>
-          <button class="btn-light" type="button" data-open-pay="freemium" data-plan="Founding member · $14/mo">
-            Reserve now · from $14/mo
+          <p>Your email reservation helps validate whether this playbook can help creators collect their first dollar.</p>
+          <button class="btn-light" type="button" data-open-contact="freemium" data-plan="Founding member · $14/mo">
+            Email to reserve a spot
             <span class="btn-icon" aria-hidden="true">↗</span>
           </button>
         </div>
@@ -1523,26 +1511,20 @@
     </div>
   </footer>
 
-  <div class="modal-overlay" id="pay-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-overlay" id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal-card">
       <button class="modal-close" type="button" id="modal-close" aria-label="Close">×</button>
-      <h3 id="modal-title">Complete your reservation</h3>
+      <h3 id="modal-title">Reserve by email</h3>
       <p class="modal-plan" id="modal-plan">Founding member · $14/mo</p>
       <div class="payment-note">
-        <strong>Payment reference (add at checkout if possible)</strong>
-        <code id="pay-memo">AIstartup-freemium-@yourXhandle</code>
-      </div>
-      <div id="pay-setup-hint" class="pay-setup-hint" hidden>
-        Add your Stripe / PayPal links in <code>CONFIG</code> at the bottom of this file.
-        Add Stripe / PayPal URLs in the <code>CONFIG</code> block at the bottom of this file.
+        <strong>Email first</strong>
+        <code id="email-memo">Email me your plan, X handle, and what you want to validate.</code>
       </div>
       <div class="pay-actions" id="pay-actions">
-        <a class="pay-btn pay-btn--stripe" id="btn-stripe" href="#" target="_blank" rel="noopener">Pay with card (Stripe)</a>
-        <a class="pay-btn pay-btn--paypal" id="btn-paypal" href="#" target="_blank" rel="noopener">Pay with PayPal</a>
-        <button class="pay-btn pay-btn--ghost" type="button" id="btn-email-b2b" hidden>Email for white-label demo</button>
+        <a class="pay-btn pay-btn--ghost" id="btn-email-direct" href="mailto:xuzhefeng222@gmail.com">Email directly</a>
       </div>
       <div class="contact-info">
-        <strong>After payment — confirm within 24h</strong>
+        <strong>Contact</strong>
         <ul>
           <li>X (DM): <a id="contact-x-link" href="https://x.com/tellmewoho" target="_blank" rel="noopener">@tellmewoho</a></li>
           <li>Email: <a id="contact-email-link" href="mailto:xuzhefeng222@gmail.com">xuzhefeng222@gmail.com</a></li>
@@ -1558,30 +1540,20 @@
           <input type="email" id="email-optional" placeholder="Launch notification" autocomplete="email">
         </div>
         <button class="btn-primary" type="submit" style="width:100%;justify-content:center">
-          I paid — send confirmation
+          Send reservation email
           <span class="btn-icon" aria-hidden="true">↗</span>
         </button>
       </form>
-      <p class="modal-foot">DM <a href="https://x.com/tellmewoho">@tellmewoho</a> or email after checkout so we can lock your founding spot.</p>
+      <p class="modal-foot">Email first, then I will reply with next steps and payment details when links are ready.</p>
     </div>
   </div>
 
   <script>
     const CONFIG = {
-      stripeLinks: {
-        freemium: "",
-        project: "",
-        b2b: "",
-      },
-      paypalLinks: {
-        freemium: "",
-        project: "",
-        b2b: "",
-      },
       contactX: "tellmewoho",
       contactEmail: "xuzhefeng222@gmail.com",
-      paymentsReceived: 0,
-      paymentGoal: 3,
+      reservationsReceived: 0,
+      reservationGoal: 3,
       formAction: "",
     };
 
@@ -1604,10 +1576,10 @@
       });
       overlay.querySelectorAll(".menu-link").forEach(function (link) {
         link.addEventListener("click", function (e) {
-          if (link.hasAttribute("data-open-pay")) {
+          if (link.hasAttribute("data-open-contact")) {
             e.preventDefault();
             closeMenu();
-            openPayModal(link.dataset.openPay, link.dataset.plan);
+            openContactModal(link.dataset.openContact, link.dataset.plan);
           } else closeMenu();
         });
       });
@@ -1626,84 +1598,46 @@
       }
     })();
 
-    var modal = document.getElementById("pay-modal");
+    var modal = document.getElementById("contact-modal");
     var modalPlan = document.getElementById("modal-plan");
-    var payMemo = document.getElementById("pay-memo");
+    var emailMemo = document.getElementById("email-memo");
     var currentTier = "freemium";
 
-    function openPayModal(tier, plan) {
+    function buildMailto(plan, tier, xHandle, email) {
+      var subject = encodeURIComponent("[AI Startup Presale] " + plan);
+      var body = encodeURIComponent(
+        "Plan: " + plan +
+        "\nTier: " + tier +
+        "\nX: " + (xHandle ? "@" + xHandle : "") +
+        "\nEmail: " + (email || "") +
+        "\n\nWhat I want to validate:\n"
+      );
+      return "mailto:" + encodeURIComponent(CONFIG.contactEmail) + "?subject=" + subject + "&body=" + body;
+    }
+
+    function openContactModal(tier, plan) {
       currentTier = tier;
       modalPlan.textContent = plan || "Founding member · $14/mo";
-      payMemo.textContent = "AIstartup-" + tier + "-@" + CONFIG.contactX;
-      updatePayButtons(tier);
+      emailMemo.textContent = "Email " + CONFIG.contactEmail + " with your X handle, chosen plan, and project idea.";
+      document.getElementById("btn-email-direct").href = buildMailto(modalPlan.textContent, currentTier, "", "");
       modal.classList.add("is-open");
       document.body.style.overflow = "hidden";
     }
 
-    function updatePayButtons(tier) {
-      var stripe = CONFIG.stripeLinks[tier] || "";
-      var paypal = CONFIG.paypalLinks[tier] || "";
-      var btnStripe = document.getElementById("btn-stripe");
-      var btnPaypal = document.getElementById("btn-paypal");
-      var btnB2b = document.getElementById("btn-email-b2b");
-      var hint = document.getElementById("pay-setup-hint");
-      var hasPay = stripe || paypal;
-
-      if (tier === "b2b" && !stripe && !paypal) {
-        btnStripe.hidden = true;
-        btnPaypal.hidden = true;
-        btnB2b.hidden = false;
-        hint.hidden = true;
-        return;
-      }
-
-      btnB2b.hidden = true;
-      btnStripe.hidden = !stripe;
-      btnPaypal.hidden = !paypal;
-      if (stripe) {
-        btnStripe.href = stripe;
-        btnStripe.removeAttribute("aria-disabled");
-      } else {
-        btnStripe.href = "#";
-        btnStripe.setAttribute("aria-disabled", "true");
-      }
-      if (paypal) {
-        btnPaypal.href = paypal;
-        btnPaypal.removeAttribute("aria-disabled");
-      } else {
-        btnPaypal.href = "#";
-        btnPaypal.setAttribute("aria-disabled", "true");
-      }
-      hint.hidden = hasPay;
-
-      btnStripe.onclick = function (e) {
-        if (!CONFIG.stripeLinks[tier]) e.preventDefault();
-      };
-      btnPaypal.onclick = function (e) {
-        if (!CONFIG.paypalLinks[tier]) e.preventDefault();
-      };
-    }
-
-    document.getElementById("btn-email-b2b").addEventListener("click", function () {
-      var subject = encodeURIComponent("[AI Startup Coach] White-label inquiry");
-      var body = encodeURIComponent("Plan: White-label\n\nCompany / program:\nSeats needed:\n");
-      window.location.href = "mailto:" + encodeURIComponent(CONFIG.contactEmail) + "?subject=" + subject + "&body=" + body;
-    });
-
-    function closePayModal() {
+    function closeContactModal() {
       modal.classList.remove("is-open");
       document.body.style.overflow = "";
     }
 
-    document.querySelectorAll("[data-open-pay]").forEach(function (btn) {
+    document.querySelectorAll("[data-open-contact]").forEach(function (btn) {
       btn.addEventListener("click", function () {
-        openPayModal(btn.dataset.openPay, btn.dataset.plan);
+        openContactModal(btn.dataset.openContact, btn.dataset.plan);
       });
     });
 
-    document.getElementById("modal-close").addEventListener("click", closePayModal);
-    modal.addEventListener("click", function (e) { if (e.target === modal) closePayModal(); });
-    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closePayModal(); });
+    document.getElementById("modal-close").addEventListener("click", closeContactModal);
+    modal.addEventListener("click", function (e) { if (e.target === modal) closeContactModal(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeContactModal(); });
 
     document.getElementById("confirm-form").addEventListener("submit", function (e) {
       e.preventDefault();
@@ -1711,7 +1645,7 @@
       var email = document.getElementById("email-optional").value.trim();
       var payload = {
         plan: modalPlan.textContent, tier: currentTier,
-        xHandle: xHandle, email: email, memo: payMemo.textContent,
+        xHandle: xHandle, email: email,
         ts: new Date().toISOString()
       };
       if (CONFIG.formAction) {
@@ -1719,15 +1653,10 @@
         Object.entries(payload).forEach(function (p) { url.searchParams.set(p[0], p[1]); });
         window.open(url.toString(), "_blank");
       } else {
-        var subject = encodeURIComponent("[AI Startup Presale] " + payload.plan);
-        var body = encodeURIComponent(
-          "Plan: " + payload.plan + "\nTier: " + payload.tier + "\nX: @" + payload.xHandle +
-          "\nEmail: " + (payload.email || "(none)") + "\nMemo: " + payload.memo + "\nTime: " + payload.ts
-        );
-        window.location.href = "mailto:" + encodeURIComponent(CONFIG.contactEmail) + "?subject=" + subject + "&body=" + body;
+        window.location.href = buildMailto(payload.plan, payload.tier, payload.xHandle, payload.email);
       }
-      closePayModal();
-      alert("Thanks! Complete payment if you have not yet, then watch for a DM or email from @tellmewoho within 24h.");
+      closeContactModal();
+      alert("Thanks! Your email app should open now. Send the message and I will reply with next steps.");
     });
 
     (function () {
@@ -1743,9 +1672,9 @@
       }
     })();
 
-    var pct = Math.min(100, (CONFIG.paymentsReceived / CONFIG.paymentGoal) * 100);
-    document.getElementById("stat-payments").textContent = CONFIG.paymentsReceived + " / " + CONFIG.paymentGoal;
-    document.getElementById("progress-text").textContent = CONFIG.paymentsReceived + " / " + CONFIG.paymentGoal + " paid";
+    var pct = Math.min(100, (CONFIG.reservationsReceived / CONFIG.reservationGoal) * 100);
+    document.getElementById("stat-payments").textContent = CONFIG.reservationsReceived + " / " + CONFIG.reservationGoal;
+    document.getElementById("progress-text").textContent = CONFIG.reservationsReceived + " / " + CONFIG.reservationGoal + " emails";
     document.getElementById("update-date").textContent = new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
     requestAnimationFrame(function () {
       document.getElementById("progress-fill").style.width = pct + "%";
