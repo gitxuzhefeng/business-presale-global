@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Startup Coach · Global Presale</title>
+  <meta name="description" content="Your AI co-founder for the first dollar. A 12-step playbook for YouTube &amp; X creators — scripts, templates, and checkpoints. Phase 1 presale.">
+  <meta property="og:title" content="AI Startup Coach — From idea to first revenue in 90 days">
+  <meta property="og:description" content="Built for creators on YouTube and X. Presale validation — lock founding pricing before launch.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg-top: #f8f9fb;
+      --bg-bottom: #eef1f5;
+      --surface: #ffffff;
+      --text: #111827;
+      --text-secondary: #374151;
+      --muted: #6b7280;
+      --muted-light: #9ca3af;
+      --ring: rgba(15, 23, 42, 0.06);
+      --ring-strong: rgba(15, 23, 42, 0.1);
+      --accent: #059669;
+      --accent-soft: #ecfdf5;
+      --accent-ring: rgba(5, 150, 105, 0.18);
+      --accent-glow: rgba(5, 150, 105, 0.12);
+      --warn-soft: #fffbeb;
+      --warn-ring: rgba(217, 119, 6, 0.15);
+      --warn-text: #b45309;
+      --shadow-sm:
+        0 2px 4px rgba(15, 23, 42, 0.02),
+        0 8px 24px rgba(15, 23, 42, 0.04);
+      --shadow-md:
+        0 2px 4px rgba(15, 23, 42, 0.02),
+        0 12px 40px rgba(15, 23, 42, 0.06),
+        0 24px 60px rgba(15, 23, 42, 0.04);
+      --shadow-lg:
+        0 4px 8px rgba(15, 23, 42, 0.03),
+        0 20px 50px rgba(15, 23, 42, 0.08),
+        0 40px 80px rgba(15, 23, 42, 0.05);
+      --ease-fluid: cubic-bezier(0.32, 0.72, 0, 1);
+      --radius-outer: 1.75rem;
+      --radius-inner: calc(1.75rem - 0.375rem);
+      font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+      background-attachment: fixed;
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    code {
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.88em;
+      font-weight: 600;
+    }
+
+    /* Ambient mesh — light, no blur on scroll */
+    .ambient {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .mesh {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.45;
+    }
+
+    .mesh--a {
+      width: 50vw; height: 50vw; max-width: 560px;
+      top: -10%; right: -5%;
+      background: radial-gradient(circle, rgba(167, 139, 250, 0.15) 0%, transparent 70%);
+    }
+
+    .mesh--b {
+      width: 40vw; height: 40vw; max-width: 480px;
+      bottom: 20%; left: -8%;
+      background: radial-gradient(circle, rgba(5, 150, 105, 0.12) 0%, transparent 70%);
+    }
+
+    .shell {
+      width: min(1140px, calc(100% - 2.5rem));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Fluid Island Nav ── */
+    .nav-wrap {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: center;
+      padding: 1.25rem 1rem 0;
+      pointer-events: none;
+    }
+
+    .nav-island {
+      pointer-events: auto;
+      display: flex; align-items: center; gap: 1.25rem;
+      padding: 0.45rem 0.45rem 0.45rem 1.125rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand {
+      display: flex; align-items: center; gap: 0.625rem;
+      font-weight: 700; font-size: 0.9375rem;
+      letter-spacing: -0.02em; white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 2rem; height: 2rem;
+      display: grid; place-items: center;
+      border-radius: 50%;
+      background: var(--text);
+      color: #fff;
+      font-size: 0.6rem; font-weight: 800;
+    }
+
+    .nav-links { display: flex; gap: 0.125rem; }
+
+    .nav-links a {
+      padding: 0.5rem 0.875rem;
+      border-radius: 999px;
+      font-size: 0.8125rem; font-weight: 500;
+      color: var(--muted);
+      transition: color 0.55s var(--ease-fluid), background 0.55s var(--ease-fluid);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(15, 23, 42, 0.04);
+    }
+
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.5rem 0.5rem 0.5rem 1.125rem;
+      border-radius: 999px;
+      background: var(--text); color: #fff;
+      font-size: 0.8125rem; font-weight: 700;
+      border: none; cursor: pointer;
+      box-shadow: 0 4px 16px rgba(17, 24, 39, 0.15);
+      transition: transform 0.55s var(--ease-fluid), box-shadow 0.55s var(--ease-fluid);
+    }
+
+    .nav-cta:active { transform: scale(0.98); }
+    .nav-cta:hover { box-shadow: 0 8px 28px rgba(17, 24, 39, 0.2); }
+
+    .nav-cta-icon {
+      width: 1.75rem; height: 1.75rem;
+      display: grid; place-items: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      font-size: 0.75rem;
+      transition: transform 0.55s var(--ease-fluid);
+    }
+
+    .nav-cta:hover .nav-cta-icon { transform: translate(2px, -1px) scale(1.05); }
+
+    .nav-toggle {
+      display: none;
+      width: 2.5rem; height: 2.5rem;
+      border: none; border-radius: 50%;
+      background: rgba(15, 23, 42, 0.05);
+      cursor: pointer; position: relative;
+    }
+
+    .nav-toggle span {
+      position: absolute; left: 50%;
+      width: 1rem; height: 1.5px;
+      background: var(--text); border-radius: 1px;
+      transition: transform 0.55s var(--ease-fluid);
+    }
+
+    .nav-toggle span:nth-child(1) { transform: translate(-50%, -4px); }
+    .nav-toggle span:nth-child(2) { transform: translate(-50%, 4px); }
+    .nav-toggle.is-open span:nth-child(1) { transform: translate(-50%, 0) rotate(45deg); }
+    .nav-toggle.is-open span:nth-child(2) { transform: translate(-50%, 0) rotate(-45deg); }
+
+    .menu-overlay {
+      position: fixed; inset: 0; z-index: 90;
+      background: rgba(248, 249, 251, 0.92);
+      backdrop-filter: blur(40px);
+      -webkit-backdrop-filter: blur(40px);
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.6s var(--ease-fluid), visibility 0.6s;
+    }
+
+    .menu-overlay.is-open { opacity: 1; visibility: visible; }
+
+    .menu-panel {
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      min-height: 100dvh; gap: 0.75rem;
+      padding: 6rem 1.5rem 3rem;
+    }
+
+    .menu-panel a {
+      font-size: clamp(1.75rem, 6vw, 2.5rem);
+      font-weight: 800; letter-spacing: -0.03em;
+      color: var(--text); opacity: 0; transform: translateY(3rem);
+      transition: opacity 0.7s var(--ease-fluid), transform 0.7s var(--ease-fluid), color 0.4s var(--ease-fluid);
+    }
+
+    .menu-overlay.is-open .menu-panel a { opacity: 1; transform: translateY(0); }
+    .menu-overlay.is-open .menu-panel a:nth-child(1) { transition-delay: 0.08s; }
+    .menu-overlay.is-open .menu-panel a:nth-child(2) { transition-delay: 0.12s; }
+    .menu-overlay.is-open .menu-panel a:nth-child(3) { transition-delay: 0.16s; }
+    .menu-overlay.is-open .menu-panel a:nth-child(4) { transition-delay: 0.2s; }
+    .menu-overlay.is-open .menu-panel a:nth-child(5) { transition-delay: 0.24s; }
+    .menu-panel a:hover { color: var(--accent); }
+
+    /* ── Double-Bezel (light) ── */
+    .bezel {
+      padding: 0.375rem;
+      border-radius: var(--radius-outer);
+      background: rgba(15, 23, 42, 0.025);
+      box-shadow: inset 0 0 0 1px var(--ring);
+    }
+
+    .bezel-inner {
+      border-radius: var(--radius-inner);
+      background: var(--surface);
+      box-shadow:
+        var(--shadow-md),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    }
+
+    /* ── Hero + Z-Axis Cascade ── */
+    .hero {
+      min-height: 100dvh;
+      display: flex; align-items: center;
+      padding: 7.5rem 0 5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      margin: 0 0 1.5rem;
+      padding: 0.375rem 0.875rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      box-shadow: inset 0 0 0 1px var(--accent-ring);
+      color: var(--accent);
+      font-size: 0.625rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.75rem, 6vw, 4.25rem);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      color: var(--text);
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .lead {
+      margin: 1.75rem 0 0;
+      max-width: 32rem;
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .lead strong { color: var(--text-secondary); font-weight: 600; }
+
+    .hero-actions {
+      display: flex; flex-wrap: wrap; gap: 0.875rem;
+      margin-top: 2.5rem;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.625rem;
+      padding: 0.9375rem 0.9375rem 0.9375rem 1.625rem;
+      border-radius: 999px;
+      background: var(--text); color: #fff;
+      font-size: 0.9375rem; font-weight: 700;
+      border: none; cursor: pointer;
+      box-shadow: 0 8px 30px rgba(17, 24, 39, 0.18);
+      transition: transform 0.55s var(--ease-fluid), box-shadow 0.55s var(--ease-fluid);
+    }
+
+    .btn-primary:active { transform: scale(0.98); }
+    .btn-primary:hover { box-shadow: 0 14px 40px rgba(17, 24, 39, 0.22); }
+
+    .btn-primary .btn-icon {
+      width: 2rem; height: 2rem;
+      display: grid; place-items: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      font-size: 0.875rem;
+      transition: transform 0.55s var(--ease-fluid);
+    }
+
+    .btn-primary:hover .btn-icon { transform: translate(3px, -1px) scale(1.05); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center;
+      padding: 0.9375rem 1.625rem;
+      border-radius: 999px;
+      background: var(--surface);
+      box-shadow: var(--shadow-sm), inset 0 0 0 1px var(--ring);
+      color: var(--text-secondary);
+      font-size: 0.9375rem; font-weight: 600;
+      transition: transform 0.55s var(--ease-fluid), box-shadow 0.55s var(--ease-fluid);
+    }
+
+    .btn-ghost:active { transform: scale(0.98); }
+    .btn-ghost:hover { box-shadow: var(--shadow-md), inset 0 0 0 1px var(--ring-strong); }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--ring);
+    }
+
+    .metric-val {
+      font-size: 1.75rem; font-weight: 800;
+      letter-spacing: -0.04em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .metric-label {
+      margin-top: 0.25rem;
+      font-size: 0.8125rem; color: var(--muted);
+    }
+
+    /* Z-axis stack */
+    .cascade {
+      position: relative;
+      min-height: 420px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .float-card {
+      position: absolute;
+      width: min(340px, 88%);
+      padding: 1.5rem 1.625rem;
+      border-radius: 1.25rem;
+      background: var(--surface);
+      box-shadow: var(--shadow-md);
+      transition: transform 0.7s var(--ease-fluid), box-shadow 0.7s var(--ease-fluid);
+    }
+
+    .float-card:hover { box-shadow: var(--shadow-lg); }
+
+    .float-card--back {
+      transform: rotate(-4deg) translate(-24px, -20px);
+      z-index: 1;
+      opacity: 0.72;
+    }
+
+    .float-card--mid {
+      transform: rotate(2deg) translate(16px, 8px);
+      z-index: 2;
+      opacity: 0.88;
+    }
+
+    .float-card--front {
+      transform: rotate(-1deg) translate(0, 48px);
+      z-index: 3;
+      box-shadow: var(--shadow-lg);
+      box-shadow:
+        0 4px 8px rgba(15, 23, 42, 0.04),
+        0 24px 64px rgba(15, 23, 42, 0.1);
+    }
+
+    .float-card--front:hover { transform: rotate(-1deg) translate(0, 44px); }
+
+    .fc-step {
+      display: inline-flex;
+      margin-bottom: 0.75rem;
+      padding: 0.25rem 0.625rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.6875rem; font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+
+    .float-card strong {
+      display: block;
+      font-size: 1.0625rem; font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.375rem;
+    }
+
+    .float-card p {
+      margin: 0;
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── Sections ── */
+    .section { padding: 7rem 0; }
+
+    .section-label {
+      display: inline-flex;
+      margin: 0 0 1rem;
+      padding: 0.375rem 0.875rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.04);
+      font-size: 0.625rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+    }
+
+    .section-head p {
+      margin: 1.125rem 0 0;
+      max-width: 36rem;
+      color: var(--muted);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+    }
+
+    .section-head { margin-bottom: 3.5rem; }
+
+    /* Editorial split */
+    .editorial {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .editorial-quote {
+      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+      font-weight: 600;
+      line-height: 1.55;
+      letter-spacing: -0.02em;
+      color: var(--text-secondary);
+    }
+
+    .compare-list {
+      display: grid; gap: 1rem;
+    }
+
+    .compare-item {
+      padding: 1.5rem 1.625rem;
+      border-radius: 1.25rem;
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.55s var(--ease-fluid), box-shadow 0.55s var(--ease-fluid);
+    }
+
+    .compare-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+    .compare-item.is-win {
+      box-shadow: var(--shadow-md), inset 0 0 0 2px var(--accent-ring);
+    }
+
+    .compare-item .tag {
+      display: inline-flex;
+      margin-bottom: 0.75rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.625rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+
+    .compare-item .tag { background: rgba(15,23,42,0.05); color: var(--muted); }
+    .compare-item.is-win .tag { background: var(--accent-soft); color: var(--accent); }
+
+    .compare-item strong {
+      display: block;
+      font-size: 1.0625rem; font-weight: 800;
+      margin-bottom: 0.375rem;
+    }
+
+    .compare-item p { margin: 0; font-size: 0.9375rem; color: var(--muted); line-height: 1.65; }
+
+    /* Feature row */
+    .feature-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .feature-card {
+      padding: 2rem 1.75rem;
+      border-radius: 1.5rem;
+      background: var(--surface);
+      box-shadow: var(--shadow-md);
+      transition: transform 0.55s var(--ease-fluid), box-shadow 0.55s var(--ease-fluid);
+    }
+
+    .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+    .feature-num {
+      display: block;
+      margin-bottom: 1.25rem;
+      font-size: 2.75rem; font-weight: 800;
+      letter-spacing: -0.05em; line-height: 1;
+      color: rgba(17, 24, 39, 0.08);
+    }
+
+    .feature-card strong {
+      display: block;
+      font-size: 1.0625rem; font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p { margin: 0; font-size: 0.9375rem; color: var(--muted); line-height: 1.65; }
+
+    /* Steps horizontal */
+    .steps-track {
+      display: flex; gap: 1rem;
+      overflow-x: auto;
+      padding: 0.5rem 0 1.5rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .steps-track::-webkit-scrollbar { display: none; }
+
+    .step-chip {
+      flex: 0 0 min(220px, 72vw);
+      scroll-snap-align: start;
+      padding: 1.5rem;
+      border-radius: 1.25rem;
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.55s var(--ease-fluid);
+    }
+
+    .step-chip.is-core {
+      box-shadow: var(--shadow-md), inset 0 0 0 2px var(--accent-ring);
+    }
+
+    .step-chip span {
+      display: block;
+      font-size: 0.6875rem; font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.625rem;
+    }
+
+    .step-chip strong {
+      display: block;
+      font-size: 1rem; font-weight: 800;
+      margin-bottom: 0.375rem;
+    }
+
+    .step-chip p { margin: 0; font-size: 0.8125rem; color: var(--muted); line-height: 1.55; }
+
+    /* Pricing — elevated cards */
+    .pricing-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .price-shell {
+      position: relative;
+      transition: transform 0.55s var(--ease-fluid);
+    }
+
+    .price-shell.is-featured {
+      transform: scale(1.04);
+      z-index: 2;
+    }
+
+    .price-badge {
+      position: absolute;
+      top: -0.75rem; left: 50%;
+      transform: translateX(-50%);
+      padding: 0.3rem 1rem;
+      border-radius: 999px;
+      background: var(--accent); color: #fff;
+      font-size: 0.625rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      white-space: nowrap;
+      box-shadow: 0 4px 16px var(--accent-glow);
+    }
+
+    .price-card {
+      padding: 2.25rem 2rem;
+      border-radius: 1.75rem;
+      background: var(--surface);
+      box-shadow: var(--shadow-md);
+      height: 100%;
+      display: flex; flex-direction: column;
+    }
+
+    .price-shell.is-featured .price-card {
+      box-shadow: var(--shadow-lg), inset 0 0 0 2px var(--accent-ring);
+    }
+
+    .price-tier {
+      margin: 0;
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted-light);
+    }
+
+    .price-name {
+      margin: 0.5rem 0 0;
+      font-size: 1.375rem; font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .price-amount {
+      margin: 1.5rem 0 0.375rem;
+      font-size: 3rem; font-weight: 800;
+      letter-spacing: -0.05em;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .price-amount small { font-size: 1rem; font-weight: 600; color: var(--muted); }
+
+    .price-desc { margin: 0; font-size: 0.875rem; color: var(--muted); }
+
+    .price-list {
+      list-style: none; margin: 1.75rem 0; padding: 0; flex: 1;
+    }
+
+    .price-list li {
+      padding: 0.625rem 0;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+    }
+
+    .price-list li::before {
+      content: "";
+      display: inline-block;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-right: 0.625rem;
+      vertical-align: middle;
+    }
+
+    .price-note {
+      margin-top: 0.875rem;
+      font-size: 0.75rem; color: var(--muted-light);
+      text-align: center;
+    }
+
+    .price-card .btn-primary,
+    .price-card .btn-ghost { width: 100%; justify-content: center; margin-top: auto; }
+
+    /* Story band */
+    .story-band {
+      padding: 3rem;
+      border-radius: 2rem;
+      background: var(--surface);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .story-band p {
+      margin: 0 0 1rem;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    .story-band p:last-of-type { margin-bottom: 0; }
+
+    .story-band strong { color: var(--text); }
+
+    .progress-wrap { margin-top: 2rem; }
+
+    .progress-track {
+      height: 8px; border-radius: 999px;
+      background: rgba(15, 23, 42, 0.06);
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%; width: 0%;
+      background: linear-gradient(90deg, var(--accent), #34d399);
+      border-radius: 999px;
+      transition: width 1.2s var(--ease-fluid);
+    }
+
+    .progress-meta {
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+      margin-top: 0.875rem;
+      font-size: 0.8125rem; color: var(--muted);
+    }
+
+    /* FAQ */
+    .faq-grid { display: grid; gap: 0.875rem; }
+
+    .faq-item {
+      border-radius: 1.25rem;
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: box-shadow 0.55s var(--ease-fluid);
+    }
+
+    .faq-item[open] { box-shadow: var(--shadow-md); }
+
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 1.375rem 1.625rem;
+      font-weight: 700; font-size: 0.9375rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    .faq-item summary::-webkit-details-marker { display: none; }
+
+    .faq-item summary::after {
+      content: "+";
+      font-size: 1.375rem; font-weight: 300;
+      color: var(--muted-light);
+    }
+
+    .faq-item[open] summary::after { content: "−"; }
+
+    .faq-body {
+      padding: 0 1.625rem 1.375rem;
+      color: var(--muted);
+      font-size: 0.9375rem; line-height: 1.7;
+    }
+
+    /* CTA */
+    .cta-panel {
+      text-align: center;
+      padding: 5rem 2.5rem;
+      border-radius: 2rem;
+      background: var(--text);
+      color: #fff;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .cta-panel h2 {
+      margin: 0;
+      font-size: clamp(1.875rem, 4vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .cta-panel p {
+      margin: 1rem auto 2.25rem;
+      max-width: 28rem;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 1rem; line-height: 1.7;
+    }
+
+    .btn-light {
+      display: inline-flex; align-items: center; gap: 0.625rem;
+      padding: 0.9375rem 0.9375rem 0.9375rem 1.625rem;
+      border-radius: 999px;
+      background: #fff; color: var(--text);
+      font-size: 0.9375rem; font-weight: 700;
+      border: none; cursor: pointer;
+      transition: transform 0.55s var(--ease-fluid), box-shadow 0.55s var(--ease-fluid);
+    }
+
+    .btn-light:active { transform: scale(0.98); }
+    .btn-light:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.2); }
+
+    .btn-light .btn-icon {
+      width: 2rem; height: 2rem;
+      display: grid; place-items: center;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.06);
+      transition: transform 0.55s var(--ease-fluid);
+    }
+
+    .btn-light:hover .btn-icon { transform: translate(3px, -1px) scale(1.05); }
+
+    /* Footer */
+    footer {
+      padding: 3rem 0 4rem;
+      border-top: 1px solid var(--ring);
+    }
+
+    .footer-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+      font-size: 0.8125rem; color: var(--muted);
+    }
+
+    .footer-brand {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-weight: 700; color: var(--text-secondary);
+    }
+
+    .footer-links a {
+      color: var(--accent); font-weight: 600;
+      transition: opacity 0.4s var(--ease-fluid);
+    }
+
+    .footer-links a:hover { opacity: 0.75; }
+
+    .theme-switch {
+      display: inline-flex; align-items: center; gap: 0.375rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.04);
+      font-size: 0.75rem; color: var(--muted);
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(248, 249, 251, 0.88);
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.55s var(--ease-fluid), visibility 0.55s;
+    }
+
+    .modal-overlay.is-open { opacity: 1; visibility: visible; }
+
+    .modal-card {
+      width: min(520px, 100%);
+      max-height: 90dvh; overflow-y: auto;
+      padding: 2.25rem;
+      border-radius: 1.75rem;
+      background: var(--surface);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(1.25rem) scale(0.98);
+      transition: transform 0.55s var(--ease-fluid);
+    }
+
+    .modal-overlay.is-open .modal-card {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close {
+      float: right;
+      width: 2.25rem; height: 2.25rem;
+      border: none; border-radius: 50%;
+      background: rgba(15, 23, 42, 0.05);
+      cursor: pointer; font-size: 1.25rem;
+      transition: background 0.4s var(--ease-fluid);
+    }
+
+    .modal-close:hover { background: rgba(15, 23, 42, 0.08); }
+
+    .modal-card h3 {
+      margin: 0 0 0.375rem;
+      font-size: 1.5rem; font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .modal-plan {
+      color: var(--accent); font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .payment-note {
+      padding: 1rem 1.25rem;
+      border-radius: 1rem;
+      background: var(--warn-soft);
+      box-shadow: inset 0 0 0 1px var(--warn-ring);
+      font-size: 0.875rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .payment-note code {
+      display: block; margin-top: 0.5rem;
+      padding: 0.625rem 0.875rem;
+      border-radius: 0.625rem;
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--warn-text);
+      font-family: ui-monospace, monospace;
+      font-size: 0.8125rem;
+      word-break: break-all;
+    }
+
+    .qr-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .qr-item {
+      margin: 0;
+      padding: 0.75rem;
+      border-radius: 1rem;
+      background: rgba(15, 23, 42, 0.03);
+      box-shadow: inset 0 0 0 1px var(--ring);
+      text-align: center;
+    }
+
+    .qr-item img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: contain;
+      border-radius: 0.625rem;
+    }
+
+    .qr-item figcaption {
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      letter-spacing: 0.02em;
+    }
+
+    .contact-info {
+      padding: 1rem 1.25rem;
+      border-radius: 1rem;
+      background: var(--accent-soft);
+      box-shadow: inset 0 0 0 1px var(--accent-ring);
+      font-size: 0.875rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.55;
+    }
+
+    .contact-info strong {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .contact-info a {
+      color: var(--accent);
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .contact-info ul {
+      margin: 0.625rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contact-info li + li {
+      margin-top: 0.375rem;
+    }
+
+    .platform-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .platform-card {
+      padding: 1.75rem 1.625rem;
+      border-radius: 1.5rem;
+      background: var(--surface);
+      box-shadow: var(--shadow-md);
+      transition: transform 0.55s var(--ease-fluid), box-shadow 0.55s var(--ease-fluid);
+    }
+
+    .platform-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .platform-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-bottom: 1rem;
+      border-radius: 0.75rem;
+      font-size: 0.6875rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: #fff;
+    }
+
+    .platform-icon--yt { background: #ff0000; }
+    .platform-icon--x { background: #0f1419; }
+
+    .platform-card strong {
+      display: block;
+      font-size: 1.125rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .platform-card p {
+      margin: 0;
+      font-size: 0.9375rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .platform-card ul {
+      margin: 1rem 0 0;
+      padding: 0;
+      list-style: none;
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+    }
+
+    .platform-card li {
+      padding: 0.35rem 0;
+      border-top: 1px solid rgba(15, 23, 42, 0.05);
+    }
+
+    .pay-actions {
+      display: grid;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .pay-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      padding: 0.9375rem 1.25rem;
+      border-radius: 0.875rem;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      font-family: inherit;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.4s var(--ease-fluid), box-shadow 0.4s var(--ease-fluid);
+    }
+
+    .pay-btn:active { transform: scale(0.98); }
+
+    .pay-btn--stripe {
+      background: #635bff;
+      color: #fff;
+      box-shadow: 0 6px 20px rgba(99, 91, 255, 0.35);
+    }
+
+    .pay-btn--paypal {
+      background: #0070ba;
+      color: #fff;
+      box-shadow: 0 6px 20px rgba(0, 112, 186, 0.25);
+    }
+
+    .pay-btn--ghost {
+      background: rgba(15, 23, 42, 0.04);
+      color: var(--text-secondary);
+      box-shadow: inset 0 0 0 1px var(--ring);
+    }
+
+    .pay-setup-hint {
+      padding: 1rem;
+      border-radius: 0.875rem;
+      background: var(--warn-soft);
+      box-shadow: inset 0 0 0 1px var(--warn-ring);
+      font-size: 0.8125rem;
+      color: var(--warn-text);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+
+    .pay-setup-hint a { color: var(--warn-text); font-weight: 700; }
+
+    .field {
+      margin-bottom: 1rem;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    .field input {
+      width: 100%;
+      padding: 0.875rem 1.125rem;
+      border-radius: 0.875rem;
+      border: none;
+      background: rgba(15, 23, 42, 0.04);
+      box-shadow: inset 0 0 0 1px var(--ring);
+      color: var(--text);
+      font-size: 0.9375rem;
+      font-family: inherit;
+      transition: box-shadow 0.4s var(--ease-fluid);
+    }
+
+    .field input:focus {
+      outline: none;
+      box-shadow: inset 0 0 0 2px var(--accent-ring);
+    }
+
+    .modal-foot {
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 0.8125rem; color: var(--muted-light);
+    }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(4rem);
+      filter: blur(10px);
+      transition:
+        opacity 0.9s var(--ease-fluid),
+        transform 0.9s var(--ease-fluid),
+        filter 0.9s var(--ease-fluid);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.18s; }
+    .reveal-delay-3 { transition-delay: 0.26s; }
+
+    @media (max-width: 960px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: block; }
+      .hero-grid, .editorial { grid-template-columns: 1fr; gap: 3rem; }
+      .cascade { min-height: 380px; margin-top: 1rem; }
+      .float-card--back { transform: rotate(-3deg) translate(-12px, -12px); }
+      .float-card--mid { transform: rotate(2deg) translate(8px, 4px); }
+      .float-card--front { transform: rotate(-1deg) translate(0, 36px); }
+      .feature-row, .pricing-row, .hero-metrics { grid-template-columns: 1fr; }
+      .price-shell.is-featured { transform: none; }
+      .platform-row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .section { padding: 4.5rem 0; }
+      .hero { padding: 6.5rem 0 3.5rem; min-height: auto; }
+      .hero-actions { flex-direction: column; }
+      .btn-primary, .btn-ghost, .btn-light { width: 100%; justify-content: center; }
+      .cascade { min-height: 340px; }
+      .float-card { width: 92%; }
+      .float-card--back, .float-card--mid, .float-card--front {
+        transform: none !important;
+        position: relative;
+        opacity: 1;
+        margin-bottom: 0.75rem;
+      }
+      .cascade { display: block; min-height: auto; }
+      .nav-island { width: calc(100% - 2rem); justify-content: space-between; }
+      .cta-panel { padding: 3.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true">
+    <div class="mesh mesh--a"></div>
+    <div class="mesh mesh--b"></div>
+  </div>
+
+  <header class="nav-wrap">
+    <nav class="nav-island" aria-label="Main">
+      <a class="brand" href="./">
+        <span class="brand-mark">AI</span>
+        <span>Startup Coach</span>
+      </a>
+      <div class="nav-links">
+        <a href="#audience">For you</a>
+        <a href="#value">Why</a>
+        <a href="#method">Method</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      <button class="nav-cta" type="button" data-open-pay="freemium" data-plan="Founding member · $14/mo">
+        Reserve spot
+        <span class="nav-cta-icon" aria-hidden="true">↗</span>
+      </button>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <div class="menu-panel">
+      <a href="#audience" class="menu-link">For you</a>
+      <a href="#value" class="menu-link">Why</a>
+      <a href="#method" class="menu-link">Method</a>
+      <a href="#pricing" class="menu-link">Pricing</a>
+      <a href="#" class="menu-link" data-open-pay="freemium" data-plan="Founding member · $14/mo">Reserve spot</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div class="reveal">
+        <p class="eyebrow">Phase 1 presale · Founding spots</p>
+        <h1>Ship your idea.<br>Collect your first <em>dollar</em>.</h1>
+        <p class="lead">Not another course — an <strong>AI co-founder</strong> that remembers your project. A 12-step playbook built for <strong>YouTube &amp; X creators</strong>: offers, outreach scripts, validation checklists — goal: first paid customer in 90 days.</p>
+        <div class="hero-actions">
+          <button class="btn-primary" type="button" data-open-pay="freemium" data-plan="Founding member · $14/mo">
+            Reserve founding · from $14/mo
+            <span class="btn-icon" aria-hidden="true">↗</span>
+          </button>
+          <a class="btn-ghost" href="#audience">See fit for YouTube / X</a>
+        </div>
+        <div class="hero-metrics">
+          <div>
+            <div class="metric-val" id="stat-payments">0 / 3</div>
+            <div class="metric-label">Paid presales</div>
+          </div>
+          <div>
+            <div class="metric-val">01–05</div>
+            <div class="metric-label">Core journey</div>
+          </div>
+          <div>
+            <div class="metric-val">90d</div>
+            <div class="metric-label">First revenue goal</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cascade reveal reveal-delay-2" aria-label="Step preview">
+        <div class="float-card float-card--back">
+          <span class="fc-step">STEP 01</span>
+          <strong>Niche score</strong>
+          <p>Rate the opportunity vs. real labor cost — S/A/B/F before you build.</p>
+        </div>
+        <div class="float-card float-card--mid">
+          <span class="fc-step">STEP 04</span>
+          <strong>Pain validation</strong>
+          <p>10 conversations, 3 strong pain signals — not polite “cool idea” replies.</p>
+        </div>
+        <div class="float-card float-card--front">
+          <span class="fc-step">STEP 05</span>
+          <strong>Presale revenue</strong>
+          <p>Sell before you build. This page is the live output of that step.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- Audience: YouTube & X -->
+    <section class="section" id="audience">
+      <div class="shell">
+        <div class="section-head reveal">
+          <p class="section-label">Built for creators</p>
+          <h2>If you post on YouTube or X, this is for you</h2>
+          <p>Same 12-step engine — different go-to-market motion. We generate scripts and checkpoints that match how you already grow an audience.</p>
+        </div>
+        <div class="platform-row reveal reveal-delay-1">
+          <article class="platform-card">
+            <span class="platform-icon platform-icon--yt" aria-hidden="true">YT</span>
+            <strong>YouTube creators</strong>
+            <p>You have attention and trust — but offers, pricing, and “what to sell” stay fuzzy. We turn your niche into a testable paid offer and DM/email scripts for comments &amp; community posts.</p>
+            <ul>
+              <li>Video &amp; community post angles</li>
+              <li>Low-pressure validation interviews</li>
+              <li>Presale page blocks you can link in description</li>
+            </ul>
+          </article>
+          <article class="platform-card">
+            <span class="platform-icon platform-icon--x" aria-hidden="true">𝕏</span>
+            <strong>X builders &amp; indie hackers</strong>
+            <p>You ship in public — but generic AI forgets your thread. We keep project context, ship milestone cards, and push you through real validation (not vanity likes).</p>
+            <ul>
+              <li>Build-in-public progress cards</li>
+              <li>Outreach &amp; reply templates for X DMs</li>
+              <li>Step 05 = presale page (like this one)</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Editorial Split: Value -->
+    <section class="section" id="value">
+      <div class="shell">
+        <div class="editorial">
+          <div class="reveal">
+            <p class="section-label">Value</p>
+            <h2 style="margin:0;font-size:clamp(2rem,4vw,2.75rem);font-weight:800;letter-spacing:-0.04em;line-height:1.08;">Great idea.<br>Zero clarity on<br>what to do today?</h2>
+            <p class="editorial-quote" style="margin-top:2rem;">ChatGPT does not remember your startup context or whether you actually ran validation. We productize a 12-step method — every step ships copy-paste scripts and pass/fail checkpoints.</p>
+          </div>
+          <div class="compare-list reveal reveal-delay-1">
+            <div class="compare-item">
+              <span class="tag">Before</span>
+              <strong>Generic courses &amp; prompts</strong>
+              <p>Broad advice, no memory, no accountability. You finish motivated — still no offer, no conversations, no revenue.</p>
+            </div>
+            <div class="compare-item is-win">
+              <span class="tag">After</span>
+              <strong>AI Startup Coach</strong>
+              <p>Guidance generated for <em>your</em> idea. Scripts, templates, checkpoints, and shareable wins — built for how creators actually ship.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-row" style="margin-top:3.5rem;">
+          <article class="feature-card reveal">
+            <span class="feature-num">01</span>
+            <strong>Founder declaration</strong>
+            <p>Claim builder identity — not just another “idea in Notes.”</p>
+          </article>
+          <article class="feature-card reveal reveal-delay-1">
+            <span class="feature-num">AI</span>
+            <strong>Your variant</strong>
+            <p>Service, SaaS, info product, or commerce — guidance adapts to your model.</p>
+          </article>
+          <article class="feature-card reveal reveal-delay-2">
+            <span class="feature-num">↗</span>
+            <strong>Build in public</strong>
+            <p>Milestone cards after each step — copy, post on X, keep momentum.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Method -->
+    <section class="section" id="method">
+      <div class="shell">
+        <div class="section-head reveal">
+          <p class="section-label">Method</p>
+          <h2>Phase 1: Steps 01–05</h2>
+          <p>From raw idea to first payment. Clear Step 05 = 3 paid commitments. Steps 06–12 unlock after you pass Step 05.</p>
+        </div>
+        <div class="steps-track reveal reveal-delay-1">
+          <div class="step-chip is-core"><span>STEP 01</span><strong>Niche score</strong><p>S/A/B/F grade + micro-niche angles</p></div>
+          <div class="step-chip is-core"><span>STEP 02</span><strong>Smart positioning</strong><p>Positioning line + first customer hypothesis</p></div>
+          <div class="step-chip is-core"><span>STEP 03</span><strong>6P offer</strong><p>Full 6P + pricing logic</p></div>
+          <div class="step-chip is-core"><span>STEP 04</span><strong>Pain validation</strong><p>10 conversations · 3 strong pains</p></div>
+          <div class="step-chip is-core"><span>STEP 05</span><strong>Presale revenue</strong><p>Sell before build · 3 paid commitments</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section" id="pricing">
+      <div class="shell">
+        <div class="section-head reveal">
+          <p class="section-label">Pricing</p>
+          <h2>Pricing · presale validation</h2>
+          <p>≥ 3 real payments in 7 days → we ship Phase 1. USD pricing; cards via Stripe / PayPal.</p>
+        </div>
+
+        <div class="pricing-row">
+          <div class="price-shell is-featured reveal">
+            <span class="price-badge">Hypothesis A</span>
+            <div class="price-card">
+              <p class="price-tier">Freemium</p>
+              <h3 class="price-name">Founding member</h3>
+              <div class="price-amount">$14<small>/mo</small></div>
+              <p class="price-desc">or $110/year · locked at presale</p>
+              <ul class="price-list">
+                <li>Steps 01–02 free to try</li>
+                <li>Unlock 03–05 + AI generation</li>
+                <li>Scripts · templates · checkpoints</li>
+                <li>Build-in-public cards</li>
+                <li>Priority access at launch</li>
+              </ul>
+              <button class="btn-primary" type="button" data-open-pay="freemium" data-plan="Founding member · $14/mo">
+                Reserve · $14/mo
+                <span class="btn-icon" aria-hidden="true">↗</span>
+              </button>
+              <p class="price-note">Tests free tier → paid conversion</p>
+            </div>
+          </div>
+
+          <div class="price-shell reveal reveal-delay-1">
+            <div class="price-card">
+              <p class="price-tier">Hypothesis B</p>
+              <h3 class="price-name">Single project pass</h3>
+              <div class="price-amount">$42</div>
+              <p class="price-desc">One-time · full 12 steps</p>
+              <ul class="price-list">
+                <li>One idea, full guidance</li>
+                <li>Core journey 01–05 included</li>
+                <li>Unlock 06–12 after Step 05</li>
+                <li>Add ideas later · $14 each</li>
+              </ul>
+              <button class="btn-ghost" type="button" data-open-pay="project" data-plan="Single project pass · $42">Reserve · $42</button>
+              <p class="price-note">Tests project-based pricing</p>
+            </div>
+          </div>
+
+          <div class="price-shell reveal reveal-delay-2">
+            <div class="price-card">
+              <p class="price-tier">Hypothesis C · Phase 2</p>
+              <h3 class="price-name">White-label</h3>
+              <div class="price-amount">$699<small>+</small></div>
+              <p class="price-desc">10–100 seats / year</p>
+              <ul class="price-list">
+                <li>Custom brand + bulk seats</li>
+                <li>Cohort progress dashboard</li>
+                <li>Dedicated onboarding</li>
+              </ul>
+              <button class="btn-ghost" type="button" data-open-pay="b2b" data-plan="White-label · custom">Book a call</button>
+              <p class="price-note">Accelerators &amp; creator programs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story -->
+    <section class="section" id="story">
+      <div class="shell reveal">
+        <div class="story-band">
+          <p class="section-label" style="margin-bottom:1.25rem;">Build in Public</p>
+          <h2 style="margin:0 0 1.25rem;font-size:clamp(1.5rem,3vw,2rem);font-weight:800;letter-spacing:-0.03em;">We validate the method on ourselves</h2>
+          <p><strong>Rule:</strong> ≥ 3 real payments in 7 days → start building. Miss → adjust pricing/positioning and retest.</p>
+          <p><strong>First-dollar wall</strong> (with permission) will showcase early supporters — the clearest proof the playbook works.</p>
+          <div class="progress-wrap">
+            <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+            <div class="progress-meta">
+              <span>Presale progress: <strong id="progress-text" style="color:var(--text)">0 / 3 paid</strong></span>
+              <span>Updated <span id="update-date"></span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+      <div class="shell">
+        <div class="section-head reveal">
+          <p class="section-label">FAQ</p>
+          <h2>FAQ</h2>
+        </div>
+        <div class="faq-grid reveal reveal-delay-1">
+          <details class="faq-item">
+            <summary>Is the product live today?</summary>
+            <div class="faq-body">Phase 1 is in development. This presale validates demand — you get founding status, priority access, and locked-in presale pricing when we launch.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Who is this for?</summary>
+            <div class="faq-body">Creators and builders on YouTube or X (22–40) with a skill and a side-project idea. You already use ChatGPT/Claude but lack a system to reach first revenue.</div>
+          </details>
+          <details class="faq-item">
+            <summary>How is this different from free AI?</summary>
+            <div class="faq-body">Generic AI forgets your project and never checks if you ran real validation. We productize 12 steps with ready-to-use scripts and pass/fail gates.</div>
+          </details>
+          <details class="faq-item">
+            <summary>How do I pay? (no WeChat)</summary>
+            <div class="faq-body">Card via Stripe or PayPal on the checkout modal. After paying, DM <a href="https://x.com/tellmewoho">@tellmewoho</a> on X or email xuzhefeng222@gmail.com with your X handle and payment reference.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Refunds?</summary>
+            <div class="faq-body">Full refund within 7 days if we have not sent access instructions and the product is not live yet. Same channel you paid through.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" style="padding-bottom:2rem;">
+      <div class="shell reveal">
+        <div class="cta-panel">
+          <h2>Be one of the first 3 validators</h2>
+          <p>Your payment is not a donation — it proves this playbook can help creators collect their first dollar.</p>
+          <button class="btn-light" type="button" data-open-pay="freemium" data-plan="Founding member · $14/mo">
+            Reserve now · from $14/mo
+            <span class="btn-icon" aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark" style="width:1.5rem;height:1.5rem;font-size:0.55rem;">AI</span>
+        AI Startup Coach
+      </div>
+      <div class="footer-links">
+        <a href="https://x.com/tellmewoho" target="_blank" rel="noopener">@tellmewoho</a>
+        <span style="opacity:0.25">·</span>
+        <a href="mailto:xuzhefeng222@gmail.com">Email</a>
+        <span style="opacity:0.25">·</span>
+        <a href="https://gitxuzhefeng.github.io/business-presale-cn/" target="_blank" rel="noopener">中文版</a>
+      </div>
+      <span>© 2026 · Step 05 in progress</span>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="pay-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <button class="modal-close" type="button" id="modal-close" aria-label="Close">×</button>
+      <h3 id="modal-title">Complete your reservation</h3>
+      <p class="modal-plan" id="modal-plan">Founding member · $14/mo</p>
+      <div class="payment-note">
+        <strong>Payment reference (add at checkout if possible)</strong>
+        <code id="pay-memo">AIstartup-freemium-@yourXhandle</code>
+      </div>
+      <div id="pay-setup-hint" class="pay-setup-hint" hidden>
+        Add your Stripe / PayPal links in <code>CONFIG</code> at the bottom of this file.
+        Add Stripe / PayPal URLs in the <code>CONFIG</code> block at the bottom of this file.
+      </div>
+      <div class="pay-actions" id="pay-actions">
+        <a class="pay-btn pay-btn--stripe" id="btn-stripe" href="#" target="_blank" rel="noopener">Pay with card (Stripe)</a>
+        <a class="pay-btn pay-btn--paypal" id="btn-paypal" href="#" target="_blank" rel="noopener">Pay with PayPal</a>
+        <button class="pay-btn pay-btn--ghost" type="button" id="btn-email-b2b" hidden>Email for white-label demo</button>
+      </div>
+      <div class="contact-info">
+        <strong>After payment — confirm within 24h</strong>
+        <ul>
+          <li>X (DM): <a id="contact-x-link" href="https://x.com/tellmewoho" target="_blank" rel="noopener">@tellmewoho</a></li>
+          <li>Email: <a id="contact-email-link" href="mailto:xuzhefeng222@gmail.com">xuzhefeng222@gmail.com</a></li>
+        </ul>
+      </div>
+      <form id="confirm-form">
+        <div class="field">
+          <label for="x-handle">Your X handle</label>
+          <input type="text" id="x-handle" required placeholder="@yourhandle" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="email-optional">Email (optional)</label>
+          <input type="email" id="email-optional" placeholder="Launch notification" autocomplete="email">
+        </div>
+        <button class="btn-primary" type="submit" style="width:100%;justify-content:center">
+          I paid — send confirmation
+          <span class="btn-icon" aria-hidden="true">↗</span>
+        </button>
+      </form>
+      <p class="modal-foot">DM <a href="https://x.com/tellmewoho">@tellmewoho</a> or email after checkout so we can lock your founding spot.</p>
+    </div>
+  </div>
+
+  <script>
+    const CONFIG = {
+      stripeLinks: {
+        freemium: "",
+        project: "",
+        b2b: "",
+      },
+      paypalLinks: {
+        freemium: "",
+        project: "",
+        b2b: "",
+      },
+      contactX: "tellmewoho",
+      contactEmail: "xuzhefeng222@gmail.com",
+      paymentsReceived: 0,
+      paymentGoal: 3,
+      formAction: "",
+    };
+
+    (function () {
+      var toggle = document.querySelector(".nav-toggle");
+      var overlay = document.getElementById("menuOverlay");
+      function closeMenu() {
+        toggle.classList.remove("is-open");
+        overlay.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        overlay.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+      toggle.addEventListener("click", function () {
+        var open = overlay.classList.toggle("is-open");
+        toggle.classList.toggle("is-open", open);
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        overlay.setAttribute("aria-hidden", open ? "false" : "true");
+        document.body.style.overflow = open ? "hidden" : "";
+      });
+      overlay.querySelectorAll(".menu-link").forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          if (link.hasAttribute("data-open-pay")) {
+            e.preventDefault();
+            closeMenu();
+            openPayModal(link.dataset.openPay, link.dataset.plan);
+          } else closeMenu();
+        });
+      });
+    })();
+
+    (function () {
+      if ("IntersectionObserver" in window) {
+        var obs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add("is-visible"); obs.unobserve(e.target); }
+          });
+        }, { threshold: 0.1, rootMargin: "0px 0px -48px 0px" });
+        document.querySelectorAll(".reveal").forEach(function (el) { obs.observe(el); });
+      } else {
+        document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("is-visible"); });
+      }
+    })();
+
+    var modal = document.getElementById("pay-modal");
+    var modalPlan = document.getElementById("modal-plan");
+    var payMemo = document.getElementById("pay-memo");
+    var currentTier = "freemium";
+
+    function openPayModal(tier, plan) {
+      currentTier = tier;
+      modalPlan.textContent = plan || "Founding member · $14/mo";
+      payMemo.textContent = "AIstartup-" + tier + "-@" + CONFIG.contactX;
+      updatePayButtons(tier);
+      modal.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function updatePayButtons(tier) {
+      var stripe = CONFIG.stripeLinks[tier] || "";
+      var paypal = CONFIG.paypalLinks[tier] || "";
+      var btnStripe = document.getElementById("btn-stripe");
+      var btnPaypal = document.getElementById("btn-paypal");
+      var btnB2b = document.getElementById("btn-email-b2b");
+      var hint = document.getElementById("pay-setup-hint");
+      var hasPay = stripe || paypal;
+
+      if (tier === "b2b" && !stripe && !paypal) {
+        btnStripe.hidden = true;
+        btnPaypal.hidden = true;
+        btnB2b.hidden = false;
+        hint.hidden = true;
+        return;
+      }
+
+      btnB2b.hidden = true;
+      btnStripe.hidden = !stripe;
+      btnPaypal.hidden = !paypal;
+      if (stripe) {
+        btnStripe.href = stripe;
+        btnStripe.removeAttribute("aria-disabled");
+      } else {
+        btnStripe.href = "#";
+        btnStripe.setAttribute("aria-disabled", "true");
+      }
+      if (paypal) {
+        btnPaypal.href = paypal;
+        btnPaypal.removeAttribute("aria-disabled");
+      } else {
+        btnPaypal.href = "#";
+        btnPaypal.setAttribute("aria-disabled", "true");
+      }
+      hint.hidden = hasPay;
+
+      btnStripe.onclick = function (e) {
+        if (!CONFIG.stripeLinks[tier]) e.preventDefault();
+      };
+      btnPaypal.onclick = function (e) {
+        if (!CONFIG.paypalLinks[tier]) e.preventDefault();
+      };
+    }
+
+    document.getElementById("btn-email-b2b").addEventListener("click", function () {
+      var subject = encodeURIComponent("[AI Startup Coach] White-label inquiry");
+      var body = encodeURIComponent("Plan: White-label\n\nCompany / program:\nSeats needed:\n");
+      window.location.href = "mailto:" + encodeURIComponent(CONFIG.contactEmail) + "?subject=" + subject + "&body=" + body;
+    });
+
+    function closePayModal() {
+      modal.classList.remove("is-open");
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll("[data-open-pay]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        openPayModal(btn.dataset.openPay, btn.dataset.plan);
+      });
+    });
+
+    document.getElementById("modal-close").addEventListener("click", closePayModal);
+    modal.addEventListener("click", function (e) { if (e.target === modal) closePayModal(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closePayModal(); });
+
+    document.getElementById("confirm-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var xHandle = document.getElementById("x-handle").value.trim().replace(/^@/, "");
+      var email = document.getElementById("email-optional").value.trim();
+      var payload = {
+        plan: modalPlan.textContent, tier: currentTier,
+        xHandle: xHandle, email: email, memo: payMemo.textContent,
+        ts: new Date().toISOString()
+      };
+      if (CONFIG.formAction) {
+        var url = new URL(CONFIG.formAction);
+        Object.entries(payload).forEach(function (p) { url.searchParams.set(p[0], p[1]); });
+        window.open(url.toString(), "_blank");
+      } else {
+        var subject = encodeURIComponent("[AI Startup Presale] " + payload.plan);
+        var body = encodeURIComponent(
+          "Plan: " + payload.plan + "\nTier: " + payload.tier + "\nX: @" + payload.xHandle +
+          "\nEmail: " + (payload.email || "(none)") + "\nMemo: " + payload.memo + "\nTime: " + payload.ts
+        );
+        window.location.href = "mailto:" + encodeURIComponent(CONFIG.contactEmail) + "?subject=" + subject + "&body=" + body;
+      }
+      closePayModal();
+      alert("Thanks! Complete payment if you have not yet, then watch for a DM or email from @tellmewoho within 24h.");
+    });
+
+    (function () {
+      var xLink = document.getElementById("contact-x-link");
+      var mailEl = document.getElementById("contact-email-link");
+      if (xLink) {
+        xLink.textContent = "@" + CONFIG.contactX;
+        xLink.href = "https://x.com/" + CONFIG.contactX;
+      }
+      if (mailEl) {
+        mailEl.textContent = CONFIG.contactEmail;
+        mailEl.href = "mailto:" + CONFIG.contactEmail;
+      }
+    })();
+
+    var pct = Math.min(100, (CONFIG.paymentsReceived / CONFIG.paymentGoal) * 100);
+    document.getElementById("stat-payments").textContent = CONFIG.paymentsReceived + " / " + CONFIG.paymentGoal;
+    document.getElementById("progress-text").textContent = CONFIG.paymentsReceived + " / " + CONFIG.paymentGoal + " paid";
+    document.getElementById("update-date").textContent = new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    requestAnimationFrame(function () {
+      document.getElementById("progress-fill").style.width = pct + "%";
+    });
+  </script>
+</body>
+</html>
